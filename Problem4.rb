@@ -9,16 +9,27 @@
     false
 =end
 
-array = ["Red", "Green", "Blue", "White"]        # Given Array
-value = gets.chomp                               # Getting input from user
-ans = false
-array.each do |ele|                              # Traversing each element in array
-    if(ele==value)
-        ans=true
-    end    
-end
-puts ans                                         # Printing answer    
+class ValueInArray                                       # class
+    
+    def checkValueinArray(array,value)                   # Method to check whether a value exists in an array
+        ans = false
+        array.each do |ele|                              # Traversing each element in array to check value exists
+            if(ele==value)
+                ans= true
+            end    
+        end
+        return ans                                       # Return answer
+       
+        # Using inbuilt function
+        # puts array.include?(value)
+    end  
+    
+end    
 
-# Using inbuilt function
-# puts array.include?("Green")
-# puts array.include?("Pink")        
+valueInArrayObj = ValueInArray.new                      # Creating object of class
+
+array = ["Red", "Green", "Blue", "White"]               # Given Array
+puts "Enter Value to check in array: "
+value = gets.chomp                                      # Getting input from user to check value in array
+ans = valueInArrayObj.checkValueinArray(array,value)
+puts ans                                               # Printing answer    
