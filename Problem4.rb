@@ -1,24 +1,22 @@
-=begin
-    Write a Ruby program to check whether a value exists in an array.
-    Sample Output:
-    Original array:
-    ["Red", "Green", "Blue", "White"]
-    Check if 'Green' in color array!
-    true
-    Check if 'Pink' in color array!
-    false
-=end
+#Write a Ruby program to check whether a value exists in an array.
 
-class ValueInArray                                       # class
-    
-    def checkValueinArray(array,value)                   # Method to check whether a value exists in an array
+class CheckValueInArray
+
+    def initialize(array)
+        @array = array
+    end 
+
+    # Method to check whether a value exists in an array
+    def check_value_in_array(value)                   
         ans = false
-        array.each do |ele|                              # Traversing each element in array to check value exists
-            if(ele==value)
+
+        # Traversing each element in array to check value exists
+        @array.each do |element|
+            if(element==value)
                 ans= true
             end    
         end
-        return ans                                       # Return answer
+        return ans
        
         # Using inbuilt function
         # puts array.include?(value)
@@ -26,10 +24,11 @@ class ValueInArray                                       # class
     
 end    
 
-valueInArrayObj = ValueInArray.new                      # Creating object of class
-
-array = ["Red", "Green", "Blue", "White"]               # Given Array
+array = ["Red", "Green", "Blue", "White"]
+# Creating object of class
+valueInArrayObj = CheckValueInArray.new(array)
+# Getting input from user to check value in array
 puts "Enter Value to check in array: "
-value = gets.chomp                                      # Getting input from user to check value in array
-ans = valueInArrayObj.checkValueinArray(array,value)
-puts ans                                               # Printing answer    
+value = gets.chomp
+ans = valueInArrayObj.check_value_in_array(value)
+puts ans   
